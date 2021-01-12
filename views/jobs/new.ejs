@@ -1,0 +1,41 @@
+<%- include('../partials/header') %>
+
+<h1>Create New Job</h1>
+
+<form action="/jobs" method="POST">
+    <label>Path to A/V file:
+        <input type="text" name="source">
+    </label>
+    <label>Path to script or supporting document:
+        <input type="text" name="sourceDocuments">
+    </label>
+    <label>Client:
+        <input type="text" name="client"> 
+    </label>
+    <label>Due:
+        <input type="date" name="dueDate">
+    </label>
+    <label>Service:
+        <select name="service">
+            <option value="transcribe">Transcribe</option>
+            <option value="caption">Caption</option>
+            </select>
+    </label>
+    <label>Speed:
+        <select name="speed">
+            <option value="transcribe">Regular</option>
+            <option value="caption">Rush</option>
+            <option value="caption">Super Rush</option>
+            </select>
+    </label>
+    <label>File Length (mins):
+        <input type="number" name="fileLength">
+    </label>
+    <label>Notes:
+        <input type="text" name="privateNotes">
+    </label>
+    <label>Project:
+        <input type="text" name="project">
+    </label>
+    <button type=submit>Submit</button>
+</form>

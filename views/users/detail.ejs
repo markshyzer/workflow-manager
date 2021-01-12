@@ -1,0 +1,22 @@
+<%- include('../partials/header.ejs') %>
+<h2>User Detail</h2>
+
+
+    <h4>
+    <%= user.name %>
+    </h4>
+    Admin:
+    <%= user.admin %>
+    <%= user.email %>
+    <%= user.address %>
+    <%= user.city %>
+    <%= user.prrovince %>
+    <%= user.country %>
+    <%= user.postalCode %>
+    <%= user.timeZone %>
+    <%= user.rate %>
+    <%= user.hstNumber %>
+    <%= user.googleId %>
+    <a href="/users/<%= user._id %>/edit">Edit</a>
+
+    

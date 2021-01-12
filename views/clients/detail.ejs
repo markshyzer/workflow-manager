@@ -1,0 +1,17 @@
+<%- include('../partials/header.ejs') %>
+    <h2>Client Detail</h2>
+    <h3>
+    <%= clients.companyName %>
+    </h3>
+    <%= clients.contact %>
+    <%= clients.email %>
+    <%= clients.address %>
+    <%= clients.city %>
+    <%= clients.prrovince %>
+    <%= clients.country %>
+    <%= clients.postalCode %>
+    <%= clients.hst %>
+    <%= clients.jargon %>
+    <%= clients.billingNotes %>
+    <%= clients.serviceNotes %>
+    <a href="/clients/<%= clients._id %>/edit">Edit</a>

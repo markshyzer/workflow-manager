@@ -1,0 +1,22 @@
+<%- include('../partials/header.ejs') %>
+<h2>All Users</h2>
+
+<% user.forEach(function(u) { %>
+    <h4>
+    <%= u.name %>
+    </h4>
+    Admin:
+    <%= u.admin %>
+    <%= u.email %>
+    <%= u.address %>
+    <%= u.city %>
+    <%= u.prrovince %>
+    <%= u.country %>
+    <%= u.postalCode %>
+    <%= u.timeZone %>
+    <%= u.rate %>
+    <%= u.hstNumber %>
+    <%= u.googleId %>
+    <a href="/users/<%= u._id %>">Detail</a>
+    
+<% }) %>

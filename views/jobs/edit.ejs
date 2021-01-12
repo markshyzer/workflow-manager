@@ -1,0 +1,48 @@
+<%- include('../partials/header') %>
+
+<h1>Edit Job</h1>
+
+<form action="/jobs?_method=PUT" method="POST">
+    <label>Job ID:
+        <input type="text" name="id" value="<%= job._id %>"readonly>
+    </label>
+    <label>Path to A/V file:
+        <input type="text" name="source" value="<%= job.source %>"=>
+    </label>
+    <label>Path to script or supporting document:
+        <input type="text" name="sourceDocuments" value="<%= job.sourceDocuments %>">
+    </label>
+    <label>Client:
+        <input type="text" name="client" value="<%= job.client %>"> 
+    </label>
+    <label>Due:
+        <input type="date" name="dueDate" value="<%= job.dueDate %>">
+    </label>
+    <label>Service:
+        <select name="service" value="<%= job.service %>">
+            <option value="transcribe">Transcribe</option>
+            <option value="caption">Caption</option>
+            </select>
+    </label>
+    <label>Speed:
+        <select name="speed" value="<%= job.speed %>">
+            <option value="regular">Regular</option>
+            <option value="rush">Rush</option>
+            <option value="super rush">Super Rush</option>
+            </select>
+    </label>
+    <label>File Length (mins):
+        <input type="number" name="fileLength" value="<%= job.fileLength %>">
+    </label>
+    <label>Notes:
+        <input type="text" name="privateNotes" value="<%= job.privateNotes %>">
+    </label>
+    <label>Project:
+        <input type="text" name="project" value="<%= job.project %>">
+    </label>
+    <button type=submit>Submit</button>
+</form>
+
+
+
+

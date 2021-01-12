@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+<h1>All Jobs</h1>
+
+<% jobs.forEach(function(j) { %>
+    <p>
+    <%= j._id %>
+    <%= j.source %>
+    <%= j.sourceDocuments %>
+    <%= j.client %>
+    <%= j.dueDate %>
+    <%= j.service %>
+    <%= j.rate %>
+    <%= j.status %>
+    <%= j.fileLength %>
+    <%= j.lengthAdjustment %>
+    <%= j.clientNotes %>
+    <%= j.assignedTo %>
+    <%= j.completedBy %>
+    <%= j.privateNotes %>
+    <%= j.interimDueDate %>
+    <%= j.billingNotes %>
+    <%= j.project %>
+    <%= j.createdDate %>
+    <%= j.assignedDate %>
+    <%= j.completedFile %>
+    <a href="/jobs/<%= j._id %>">Details</a>
+</p>
+<% }) %>
+
+<p><a href="/jobs/new">Add Job</a></p>

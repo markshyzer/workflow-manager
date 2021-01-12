@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+<h1>Job Detail</h1>
+
+    <%= jobs.source %>
+    <%= jobs.sourceDocuments %>
+    <%= jobs.client %>
+    <%= jobs.dueDate %>
+    <%= jobs.service %>
+    <%= jobs.rate %>
+    <%= jobs.speed %>
+    <%= jobs.status %>
+    <%= jobs.fileLength %>
+    <%= jobs.lengthAdjustment %>
+    <%= jobs.clientNotes %>
+    <%= jobs.assignedTo %>
+    <%= jobs.completedBy %>
+    <%= jobs.privateNotes %>
+    <%= jobs.interimDueDate %>
+    <%= jobs.billingNotes %>
+    <%= jobs.project %>
+    <%= jobs.createdDate %>
+    <%= jobs.assignedDate %>
+    <%= jobs.completedFile %>
+    <a href="/jobs/<%= jobs._id %>/edit">Edit</a>
+
+

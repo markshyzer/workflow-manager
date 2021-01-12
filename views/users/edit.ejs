@@ -1,0 +1,48 @@
+<%- include('../partials/header') %>
+
+<h1>Edit User</h1>
+
+<form action="/users?_method=PUT" method="POST">
+    <label>ID:
+        <input type="text" name="id" value="<%= users._id %>" readonly>
+    </label>
+    <label>Name:
+        <input type="text" name="name" value="<%= users.name %>">
+    </label>
+    <label>Administrator:
+        <input type="text" name="admin" value="<%= users.admin %>"=>
+    </label>
+    <label>Email:
+        <input type="text" name="email" value="<%= users.email %>"=>
+    </label>
+    <label>Address:
+        <input type="text" name="address" value="<%= users.address %>"=>
+    </label>
+    <label>City:
+        <input type="text" name="city" value="<%= users.city %>"=>
+    </label>
+    <label>Province:
+        <input type="text" name="province" value="<%= users.province %>"=>
+    </label>
+    <label>Country:
+        <input type="text" name="country" value="<%= users.country %>"=>
+    </label>
+    <label>Postal Code:
+        <input type="text" name="postalCode" value="<%= users.postalCode %>"=>
+    </label>
+    <label>Time Zone:
+        <input type="text" name="timeZone" value="<%= users.timeZone %>"=>
+    </label>
+    <label>Rate per min:
+        <input type="number" name="rate" value="<%= users.rate %>"=>
+    </label>
+    <label>HST Number:
+        <input type="text" name="hstNumber" value="<%= users.hstNumber %>"=>
+    </label>
+    <button type=submit>Submit</button>
+</form>
+<p>GoogleID: <%= users.googleId %> </p>
+
+
+
+

@@ -1,0 +1,50 @@
+<%- include('../partials/header') %>
+
+<h1>Edit Client</h1>
+
+<form action="/users?_method=PUT" method="POST">
+    <label>ID:
+        <input type="text" name="id" value="<%= clients._id %>" readonly>
+    </label>
+    <label>Company:
+        <input type="text" name="companyName" value="<%= clients.companyName %>">
+    </label>    
+    <label>Contact:
+        <input type="text" name="contact" value="<%= clients.contact %>">
+    </label>
+    <label>Email:
+        <input type="text" name="email" value="<%= clients.email %>">
+    </label> 
+    <label>Address:
+        <input type="text" name="address" value="<%= clients.address %>">
+    </label>    
+    <label>City:
+        <input type="text" name="city" value="<%= clients.city %>">
+    </label> 
+    <label>Province:
+        <input type="text" name="province" value="<%= clients.province %>">
+    </label>      
+    <label>Country:
+        <input type="text" name="country" value="<%= clients.country %>">
+    </label>   
+    <label>Postal Code:
+        <input type="text" name="postalCode" value="<%= clients.postalCode %>">
+    </label>   
+    <label>HST:
+        <input type="text" name="hst" value="<%= clients.hst %>">
+    </label>   
+    <label>Billing Notes:
+        <input type="text" name="billingNotes" value="<%= clients.billingNotes %>">
+    </label>   
+    <label>Service Notes:
+        <input type="text" name="serviceNotes" value="<%= clients.serviceNotes %>">
+    </label>   
+    <label>Custom words:
+        <input type="text" name="jargon" value="<%= clients.jargon %>">
+    </label>   
+    <button type=submit>Submit</button>
+</form>
+
+
+
+
