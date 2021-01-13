@@ -9,6 +9,10 @@ function create(req, res, next) {
     })
 }
 
+function newClient(req, res, next) {
+    res.render('clients/new', {user: req.user})
+}
+
 function showAllClients(req, res, next) {
     Client.find({}, function(err, clients) {
         // console.log('All clients:', client)
@@ -54,6 +58,7 @@ module.exports = {
     showAllClients,
     showClientDetail,
     updateClient,
-    editClient
+    editClient,
+    newClient
 
 }

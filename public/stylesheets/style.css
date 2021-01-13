@@ -6,3 +6,21 @@ body {
 a {
   color: #00B7FF;
 }
+
+.entry {
+  border: 0px solid grey;
+  border-radius: 10px;
+  box-shadow: grey;
+  margin: 10px;
+  padding: 10px;
+  background-color: lightblue;
+}
+
+.entry:hover {
+background-color: cornflowerblue;
+}
+
+label {
+  display: flex;
+}
+

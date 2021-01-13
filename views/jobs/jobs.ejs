@@ -2,29 +2,46 @@
 <h1>All Jobs</h1>
 
 <% jobs.forEach(function(j) { %>
-    <p>
+<div class="entry">
+    <ul>
+        <li>
+    Job ID:
     <%= j._id %>
+</li>
+<li>
+    Source:
     <%= j.source %>
-    <%= j.sourceDocuments %>
-    <%= j.client %>
+</li>
+<li>
+    Client:
+    <%= j.client.companyName %>
+</li>
+<li>
+    Due Date:
     <%= j.dueDate %>
+</li>
+<li>
+    Service:
     <%= j.service %>
-    <%= j.rate %>
-    <%= j.status %>
+</li>
+<li>
+    Speed:
+    <%= j.speed %>
+</li>
+<li>
+    File Length:
     <%= j.fileLength %>
-    <%= j.lengthAdjustment %>
-    <%= j.clientNotes %>
-    <%= j.assignedTo %>
-    <%= j.completedBy %>
-    <%= j.privateNotes %>
-    <%= j.interimDueDate %>
-    <%= j.billingNotes %>
-    <%= j.project %>
-    <%= j.createdDate %>
-    <%= j.assignedDate %>
-    <%= j.completedFile %>
+</li>
+<li>
+    Assigned To:
+    <%= j.assignedTo.email %>
+</li>
+<li>
     <a href="/jobs/<%= j._id %>">Details</a>
-</p>
+    <a href="/jobs/<%= j._id %>/edit">Edit</a>
+    </li>
+</ul>
+</div>
 <% }) %>
 
 <p><a href="/jobs/new">Add Job</a></p>

@@ -13,7 +13,11 @@
         <input type="text" name="sourceDocuments" value="<%= job.sourceDocuments %>">
     </label>
     <label>Client:
-        <input type="text" name="client" value="<%= job.client %>"> 
+        <select name="client">
+        <% clientIds.forEach(function(id){ %>
+            <option value="<%= id._id %>"><%= id.companyName %></option>
+        <% }) %>
+        </select>
     </label>
     <label>Due:
         <input type="date" name="dueDate" value="<%= job.dueDate %>">
@@ -39,6 +43,14 @@
     </label>
     <label>Project:
         <input type="text" name="project" value="<%= job.project %>">
+    </label>
+    <label>Assign to:
+
+        <select name="assignedTo">
+        <% userlist.forEach(function(id){ %>
+            <option value="<%= id._id %>"><%= id.email %></option>
+        <% }) %>
+        </select>
     </label>
     <button type=submit>Submit</button>
 </form>

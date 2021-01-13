@@ -1,26 +1,89 @@
 <%- include('../partials/header') %>
 <h1>Job Detail</h1>
-
+<div>
+    <ul>
+        <li>
+    Source: 
     <%= jobs.source %>
+</li>
+<li>
+    Source Documents:
     <%= jobs.sourceDocuments %>
-    <%= jobs.client %>
+</li>
+<li>
+    Client:
+    <%= jobs.client.companyName %>
+</li>
+<li>
+    Due Date:
     <%= jobs.dueDate %>
+</li>
+<li>
+    Service:
     <%= jobs.service %>
+</li>
+<li>
+    Rate:
     <%= jobs.rate %>
+</li>
+<li>
+    Speed:
     <%= jobs.speed %>
+</li>
+<li>
+    Status:
     <%= jobs.status %>
+</li>
+<li>
+    File Length:
     <%= jobs.fileLength %>
+</li>
+<li>
+    Length Adjustment:
     <%= jobs.lengthAdjustment %>
+</li>
+<li>
+    Client Notes:
     <%= jobs.clientNotes %>
-    <%= jobs.assignedTo %>
+</li>
+<li>
+    Assigned To:
+    <%= jobs.assignedTo.email %>
+</li>
+<li>
+    Completedy By:
     <%= jobs.completedBy %>
+</li>
+<li>
+    Private Notes:
     <%= jobs.privateNotes %>
+</li>
+<li>
+    Interim Due Date:
     <%= jobs.interimDueDate %>
+</li>
+<li>
+    Billing Notes:
     <%= jobs.billingNotes %>
+</li>
+<li>
+    Project:
     <%= jobs.project %>
+</li>
+<li>
+    Created Date:
     <%= jobs.createdDate %>
+</li>
+<li>
+    Assigned Date:
     <%= jobs.assignedDate %>
+</li>
+<li>
+    Completed File:
     <%= jobs.completedFile %>
+</li>
+<li>
     <a href="/jobs/<%= jobs._id %>/edit">Edit</a>
+</div>
 
 

@@ -1,4 +1,13 @@
 let Job = require('../models/jobs')
+let Client = require('../models/clients')
+let User = require('../models/users')
+
+function newJob(req, res, next) {
+    Client.find({}, '_id companyName', function (err, clientIds) {
+        console.log('All client Ids: ', clientIds);
+        res.render('jobs/new', {clientIds, user: req.user})
+    })
+}
 
 function create(req, res, next) {
     let job = new Job(req.body);
@@ -10,15 +19,32 @@ function create(req, res, next) {
 }
 
 function showAllJobs(req, res, next) {
-    Job.find({}, function(err, jobs) {
-        // console.log('All jobs:', jobs)
+    if (req.user.admin === true) {
+    Job.find({})
+    .populate('client', 'companyName') 
+    .populate('assignedTo', 'email')
+    .exec (function(err, jobs) {
+        console.log('All jobs:', jobs)
         res.render('jobs/jobs', {jobs, user: req.user})
     })
+} else {
+    console.log('Finding jobs assigned to user', req.user._id)
+    Job.find({assignedTo: req.user._id})
+    .populate('client', 'companyName') 
+    .populate('assignedTo', 'email')
+    .exec (function(err, jobs) {
+        console.log('All jobs:', jobs)
+        res.render('jobs/jobs', {jobs, user: req.user})
+    })
+}
 }
 
 function showJobDetail (req, res, next) {
     let id = req.params.id
-    Job.findById(id, function(err, jobs) {
+    Job.findById(id) 
+    .populate('client', 'companyName') 
+    .populate('assignedTo', 'email')
+    .exec (function(err, jobs) {
         // console.log('User', user)
         res.render('jobs/detail', {jobs, user: req.user})
     })
@@ -27,8 +53,12 @@ function showJobDetail (req, res, next) {
 function editJob (req, res, next) {
     let id = req.params.id
     Job.findById(id, function(err, job) {
-        console.log('Job: ', job)
-        res.render('jobs/edit', {job, user: req.user})
+        Client.find({}, '_id companyName', function (err, clientIds) {
+            User.find({}, '_id email', function (err, userlist) {
+                console.log('User list:', userlist)
+                res.render('jobs/edit', {job, clientIds, userlist, user: req.user})
+            })
+        })
     })
 }
 
@@ -77,5 +107,6 @@ module.exports = {
     showAllJobs,
     showJobDetail,
     editJob,
-    updateJob
+    updateJob,
+    newJob
 }

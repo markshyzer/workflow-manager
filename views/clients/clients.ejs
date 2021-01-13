@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <h1>All Clients</h1>
 <% clients.forEach(function(c) { %>
-    <p>
+    <div class="entry">
     <%= c.companyName %>
     <%= c.address %>
     <%= c.city %>
@@ -14,6 +14,6 @@
     <%= c.contact %>
     <%= c.jargon %>      
     <a href="/clients/<%= c._id %>">Detail</a>
-    </p>
+    </div>
 <% }) %>
 <a href="/clients/new">Add Client</a>

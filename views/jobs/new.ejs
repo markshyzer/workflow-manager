@@ -9,9 +9,17 @@
     <label>Path to script or supporting document:
         <input type="text" name="sourceDocuments">
     </label>
+
     <label>Client:
-        <input type="text" name="client"> 
+
+        <select name="client">
+        <% clientIds.forEach(function(id){ %>
+            <option value="<%= id._id %>"><%= id.companyName %><%= id._id %></option>
+        <% }) %>
+        </select>
     </label>
+
+
     <label>Due:
         <input type="date" name="dueDate">
     </label>
@@ -23,9 +31,9 @@
     </label>
     <label>Speed:
         <select name="speed">
-            <option value="transcribe">Regular</option>
-            <option value="caption">Rush</option>
-            <option value="caption">Super Rush</option>
+            <option value="regular">Regular</option>
+            <option value="rush">Rush</option>
+            <option value="super rush">Super Rush</option>
             </select>
     </label>
     <label>File Length (mins):
@@ -37,5 +45,8 @@
     <label>Project:
         <input type="text" name="project">
     </label>
+
+
+
     <button type=submit>Submit</button>
 </form>

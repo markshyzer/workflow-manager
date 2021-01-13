@@ -40,9 +40,9 @@ app.use(methodOverride('_method'));
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/jobs', jobsRouter);
-app.use('/clients', clientsRouter);
+app.use('/users', isLoggedIn, usersRouter);
+app.use('/jobs', isLoggedIn, jobsRouter);
+app.use('/clients', isLoggedIn, clientsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -59,5 +59,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// Insert this middleware for routes that require a logged in user
+function isLoggedIn(req, res, next) {
+  if ( req.isAuthenticated() ) return next();
+  res.redirect('/auth/google');
+}
 
 module.exports = app;
