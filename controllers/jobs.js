@@ -12,7 +12,7 @@ function create(req, res, next) {
 function showAllJobs(req, res, next) {
     Job.find({}, function(err, jobs) {
         // console.log('All jobs:', jobs)
-        res.render('jobs/jobs', {jobs})
+        res.render('jobs/jobs', {jobs, user: req.user})
     })
 }
 
@@ -20,7 +20,7 @@ function showJobDetail (req, res, next) {
     let id = req.params.id
     Job.findById(id, function(err, jobs) {
         // console.log('User', user)
-        res.render('jobs/detail', {jobs})
+        res.render('jobs/detail', {jobs, user: req.user})
     })
 }
 
@@ -28,7 +28,7 @@ function editJob (req, res, next) {
     let id = req.params.id
     Job.findById(id, function(err, job) {
         console.log('Job: ', job)
-        res.render('jobs/edit', {job})
+        res.render('jobs/edit', {job, user: req.user})
     })
 }
 

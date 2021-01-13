@@ -1,17 +1,17 @@
 let User = require('../models/users')
 
 function showAllUsers (req, res, next) {
-    User.find({}, function(err, user) {
-        console.log('All jobs:', user)
-        res.render('users/users', {user})
+    User.find({}, function(err, users) {
+        console.log('All jobs:', users)
+        res.render('users/users', {users, user: req.user})
     })
 }
 
 function showUserDetail (req, res, next) {
     let id = req.params.id
-    User.findById(id, function(err, user) {
+    User.findById(id, function(err, users) {
         // console.log('User', user)
-        res.render('users/detail', {user})
+        res.render('users/detail', {users, user: req.user})
     })
 }
 
@@ -21,7 +21,7 @@ function editUser (req, res, next) {
     let id = req.params.id
     User.findById(id, function(err, users) {
         console.log('Job: ', users)
-        res.render('users/edit', {users})
+        res.render('users/edit', {users, user: req.user})
     })
 }
 

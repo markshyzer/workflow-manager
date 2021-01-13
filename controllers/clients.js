@@ -12,7 +12,7 @@ function create(req, res, next) {
 function showAllClients(req, res, next) {
     Client.find({}, function(err, clients) {
         // console.log('All clients:', client)
-        res.render('clients/clients', {clients})
+        res.render('clients/clients', {clients, user: req.user})
     })
 }
 
@@ -20,7 +20,7 @@ function showClientDetail (req, res, next) {
     let id = req.params.id
     Client.findById(id, function(err, clients) {
         // console.log('User', user)
-        res.render('clients/detail', {clients})
+        res.render('clients/detail', {clients, user: req.user})
     })
 }
 
@@ -28,7 +28,7 @@ function editClient (req, res, next) {
     let id = req.params.id
     Client.findById(id, function(err, clients) {
         console.log('Job: ', clients)
-        res.render('clients/edit', {clients})
+        res.render('clients/edit', {clients, user: req.user})
     })
 }
 
