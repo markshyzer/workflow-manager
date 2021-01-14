@@ -2,43 +2,31 @@
 <h1>All Jobs</h1>
 
 <% jobs.forEach(function(j) { %>
-<div class="entry">
+<div class="entry <%= j.status %>">
+
     <ul>
-        <li>
-    Job ID:
-    <%= j._id %>
+<li> 
+    <h2><a href="/<%= j.fileName %>"><%= j.source %></a></h2>
 </li>
 <li>
-    Source:
-    <%= j.source %>
+    <%= j.service %> due <%= j.dueDate %>
 </li>
+</ul>
+<ul>
 <li>
-    Client:
-    <%= j.client.companyName %>
-</li>
-<li>
-    Due Date:
-    <%= j.dueDate %>
-</li>
-<li>
-    Service:
-    <%= j.service %>
-</li>
-<li>
-    Speed:
-    <%= j.speed %>
-</li>
-<li>
-    File Length:
-    <%= j.fileLength %>
+    <%= j.fileLength %> mins
 </li>
 <li>
     Assigned To:
     <%= j.assignedTo.email %>
 </li>
 <li>
+    <li></li>
     <a href="/jobs/<%= j._id %>">Details</a>
+</li>
+<li>
     <a href="/jobs/<%= j._id %>/edit">Edit</a>
+</li>
     </li>
 </ul>
 </div>

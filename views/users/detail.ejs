@@ -1,7 +1,7 @@
 <%- include('../partials/header.ejs') %>
 <h2>User Detail</h2>
 
-
+<div class="entry">
     <h4>
     <%= user.name %>
     </h4>
@@ -18,5 +18,6 @@
     <%= user.hstNumber %>
     <%= user.googleId %>
     <a href="/users/<%= user._id %>/edit">Edit</a>
+</div>
 
     

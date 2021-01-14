@@ -1,10 +1,10 @@
 <%- include('../partials/header') %>
 <h1>Job Detail</h1>
-<div>
+<div class="entry">
     <ul>
         <li>
     Source: 
-    <%= jobs.source %>
+    <a href="/<%= jobs.fileName %>"><%= jobs.source %></a>
 </li>
 <li>
     Source Documents:
@@ -84,6 +84,9 @@
 </li>
 <li>
     <a href="/jobs/<%= jobs._id %>/edit">Edit</a>
+    <form action="/jobs/<%= jobs.id %>?_method=DELETE"
+        class="delete-form" method="POST">
+        <button type="submit">Delete</button>
 </div>
 
 

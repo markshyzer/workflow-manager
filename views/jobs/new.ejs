@@ -2,10 +2,14 @@
 
 <h1>Create New Job</h1>
 
-<form action="/jobs" method="POST">
-    <label>Path to A/V file:
-        <input type="text" name="source">
+<form action="/jobs" method="POST" enctype="multipart/form-data">
+    <label>Select a file:
+    <input type="file" id="myfile" name="source"> 
     </label>
+
+    <!-- <label>Path to A/V file:
+        <input type="text" name="source">
+    </label> -->
     <label>Path to script or supporting document:
         <input type="text" name="sourceDocuments">
     </label>
@@ -14,7 +18,7 @@
 
         <select name="client">
         <% clientIds.forEach(function(id){ %>
-            <option value="<%= id._id %>"><%= id.companyName %><%= id._id %></option>
+            <option value="<%= id._id %>"><%= id.companyName %> <%= id._id %></option>
         <% }) %>
         </select>
     </label>
@@ -25,8 +29,8 @@
     </label>
     <label>Service:
         <select name="service">
-            <option value="transcribe">Transcribe</option>
-            <option value="caption">Caption</option>
+            <option value="Transcript">Transcribe</option>
+            <option value="Captions">Caption</option>
             </select>
     </label>
     <label>Speed:

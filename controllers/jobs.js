@@ -10,10 +10,17 @@ function newJob(req, res, next) {
 }
 
 function create(req, res, next) {
+    console.log('New job', req.body)
+    console.log('File', req.file)
     let job = new Job(req.body);
+    job.source = req.file.originalname
+    job.fileName = req.file.filename
+    job.fileType = req.file.mimetype
+    job.filePath = req.file.path
+    job.fileSize = req.file.size
+    console.log('job', job)
     job.save(function(err){
         if (err) return(res.send(err));
-        console.log(job)
         res.redirect('/jobs')
     })
 }
@@ -24,7 +31,7 @@ function showAllJobs(req, res, next) {
     .populate('client', 'companyName') 
     .populate('assignedTo', 'email')
     .exec (function(err, jobs) {
-        console.log('All jobs:', jobs)
+        // console.log('All jobs:', jobs)
         res.render('jobs/jobs', {jobs, user: req.user})
     })
 } else {
@@ -76,31 +83,16 @@ function updateJob (req, res, next) {
             res.redirect('/jobs')
         })
     })
+}
 
-    // Job
-	// .findById(id) // find the cheese to edit
-	// .then(job => {
-	//     job.source = 'Cheddar' // update the cheese's properties
-    //     return job.save() // save the cheese
-	// })
-
-
-
-    // Job.findById(id)
-    // .then(job => {
-    //     job = req.body
-    //     return job.save()
-    // })
-    
-
-
+function deleteJob (req, res, next) {
+    Job.deleteOne({ _id: req.params.id}, function (err, job) {
+        console.log('Gonna delete', job)
+        res.redirect('/jobs')
+    })
 }
 
 
-// Flights.find({}, function(err, flights) {
-//     console.log('My flights:', flights)  
-//     res.render('flights', {flights})
-//   })
 
 module.exports = {
     create,
@@ -108,5 +100,6 @@ module.exports = {
     showJobDetail,
     editJob,
     updateJob,
-    newJob
+    newJob,
+    deleteJob 
 }

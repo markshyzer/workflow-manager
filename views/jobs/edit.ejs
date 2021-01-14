@@ -2,6 +2,7 @@
 
 <h1>Edit Job</h1>
 
+<div class="entry">
 <form action="/jobs?_method=PUT" method="POST">
     <label>Job ID:
         <input type="text" name="id" value="<%= job._id %>"readonly>
@@ -24,8 +25,8 @@
     </label>
     <label>Service:
         <select name="service" value="<%= job.service %>">
-            <option value="transcribe">Transcribe</option>
-            <option value="caption">Caption</option>
+            <option value="Transcript">Transcribe</option>
+            <option value="Captions">Caption</option>
             </select>
     </label>
     <label>Speed:
@@ -52,8 +53,17 @@
         <% }) %>
         </select>
     </label>
+    <label>Status:
+        <select name="status">
+            <option value="<%= job.status %>"><%= job.status %></option>
+            <option value="incomplete">Incomplete</option>
+            <option value="assigned">Assigned</option>
+            <option value="complete">Complete</option>
+        </select>
+    </label>
     <button type=submit>Submit</button>
 </form>
+</div>
 
 
 

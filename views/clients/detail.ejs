@@ -1,5 +1,6 @@
 <%- include('../partials/header.ejs') %>
     <h2>Client Detail</h2>
+    <div class="entry">
     <h3>
     <%= clients.companyName %>
     </h3>
@@ -15,3 +16,4 @@
     <%= clients.billingNotes %>
     <%= clients.serviceNotes %>
     <a href="/clients/<%= clients._id %>/edit">Edit</a>
+</div>

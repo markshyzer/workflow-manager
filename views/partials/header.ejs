@@ -9,13 +9,26 @@
 </head>
 <body>
     <header>
-    <h1>Workflow Manager</h1>
+    <h1>Workflow Manager</h1><span>
         <% if (user) { %>
-            <p>Logged in as <%= user.email %> <a href="../logout">Logout</a></p>
+            Logged in as <%= user.email %> <a href="../logout">Logout</a>
         <% } else { %>
-            <p><a href="/auth/google">Login with Google</a></p>
+            <a href="/auth/google">Login with Google</a>
         <% } %>
-        <a href="/jobs">Jobs </a><a href="/clients">Clients </a><a href="/users">Users </a>
-    </header>   
+    </span>
+    </header>  
+    <menu>
+        <ul>
+            <li>
+                 <a href="/jobs">Jobs </a>
+            </li>
+            <li>
+                <a href="/clients">Clients </a>
+           </li>
+           <li>
+               <a href="/users">Users </a>
+             </li>
+        </ul>
+    </menu> 
 </body>
 </html>

@@ -3,11 +3,15 @@ const Schema = mongoose.Schema;
 
 const jobSchema = new Schema ({
     source: String,
+    fileName: String,
+    fileType: String,
+    filePath: String,
+    fileSize: Number,
     sourceDocuments: { type: String, default: null},
-    status: {type: String, default: 'Incomplete'},
+    status: {type: String, default: 'incomplete'},
     client: { type: mongoose.Types.ObjectId, ref: 'Client' },
     dueDate: String,
-    service: {type: String, enum: ['transcribe', 'caption'] },
+    service: {type: String, enum: ['Transcript', 'Captions'] },
     speed: {type: String, enum: ['rush', 'regular', 'super rush'], default: 'regular' },
     rate: Number,
     fileLength: Number,
