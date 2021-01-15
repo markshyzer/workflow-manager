@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <h1>Create New Job</h1>
-
+<div class="entry">
 <form action="/jobs" method="POST" enctype="multipart/form-data">
     <label>Select a file:
     <input type="file" id="myfile" name="source"> 
@@ -10,15 +10,12 @@
     <!-- <label>Path to A/V file:
         <input type="text" name="source">
     </label> -->
-    <label>Path to script or supporting document:
-        <input type="text" name="sourceDocuments">
-    </label>
 
     <label>Client:
 
         <select name="client">
         <% clientIds.forEach(function(id){ %>
-            <option value="<%= id._id %>"><%= id.companyName %> <%= id._id %></option>
+            <option value="<%= id._id %>"><%= id.companyName %></option>
         <% }) %>
         </select>
     </label>
@@ -54,3 +51,4 @@
 
     <button type=submit>Submit</button>
 </form>
+</div>

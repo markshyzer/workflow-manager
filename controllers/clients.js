@@ -44,7 +44,7 @@ function updateClient (req, res, next) {
         clients = Object.assign(clients, req.body)
         // job.source = req.body.source
         console.log('client is now ', clients)
-        client.save(function(err){
+        clients.save(function(err){
             if (err) return(res.send(err));
             // console.log(job)
             res.redirect('/clients')

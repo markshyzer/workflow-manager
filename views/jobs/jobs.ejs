@@ -17,13 +17,20 @@
     <%= j.fileLength %> mins
 </li>
 <li>
-    Assigned To:
-    <%= j.assignedTo.email %>
+    <% if (j.status === 'Complete') { %>
+        Complete
+    <% } else if (j.status === 'Incomplete') { %>
+        Incomplete
+    <% } else { %>
+    Assigned to: <%= j.assignedTo.email %>
+    <% } %>
 </li>
 <li>
-    <li></li>
+    <% if (user.admin) { %>
+    <li>
     <a href="/jobs/<%= j._id %>">Details</a>
 </li>
+<% } %>
 <li>
     <a href="/jobs/<%= j._id %>/edit">Edit</a>
 </li>
@@ -32,4 +39,6 @@
 </div>
 <% }) %>
 
-<p><a href="/jobs/new">Add Job</a></p>
+
+
+</body>

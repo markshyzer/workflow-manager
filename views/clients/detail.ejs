@@ -1,19 +1,15 @@
 <%- include('../partials/header.ejs') %>
-    <h2>Client Detail</h2>
-    <div class="entry">
-    <h3>
-    <%= clients.companyName %>
-    </h3>
-    <%= clients.contact %>
-    <%= clients.email %>
-    <%= clients.address %>
-    <%= clients.city %>
-    <%= clients.prrovince %>
-    <%= clients.country %>
-    <%= clients.postalCode %>
-    <%= clients.hst %>
-    <%= clients.jargon %>
-    <%= clients.billingNotes %>
-    <%= clients.serviceNotes %>
+
+    <h1>Client Detail</h1>
+    <div class="entry clients">
+    <h3><%= clients.companyName %></h3>
+    <p>Contact: <%= clients.contact %> - <%= clients.email %><br>
+    <%= clients.address %><br>
+    <%= clients.city %>, <%= clients.province %> <%= clients.country %> <br>
+    <%= clients.postalCode %><br>
+    HST: <%= clients.hst %></p>
+    <p>Jargon list: <%= clients.jargon %><br>
+    Billing Notes: <%= clients.billingNotes %><br>
+    Service Notes: <%= clients.serviceNotes %><br></p>
     <a href="/clients/<%= clients._id %>/edit">Edit</a>
 </div>

@@ -1,36 +1,53 @@
-/* * {
-  box-sizing: border-box; 
-} */
+
 
 body {
   /* padding: -10px; */
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  /* display: flex; */
+  font-family: Geneva, Tahoma, sans-serif;
   margin: 0 auto;
   background-color: beige;
+  padding-top: 75px;
+  text-align: center;
+  background: url(/images/woodgrain.jpg);
+  background-size: contain;
+  background-attachment: fixed;
 }
 
 a {
-  color: navy;
+  color: black;
 }
 
 header {
   position: fixed;
+  top: 0;
   width: 100vw;
   /* display:inline; */
   /* display: flex;
   flex-direction: row; */
-  background-color: cornflowerblue;
+  background-color: rgb(52, 18, 9);
+  text-align: left;
+  color: silver;
+}
+
+header a {
+  color: silver;
 }
 
 h1 {
   display: inline;
   padding: 10px;
+  margin: 50px 50px;
+  color: silver;
 }
+
+h2 {
+  display: inline;
+  padding: 20px;
+}
+
 
 span {
   float: right;
-  padding: 10px;
+  padding: 10px 40px;
 }
 
 menu {
@@ -38,9 +55,16 @@ menu {
   /* flex-direction: column; */
   /* display: inline; */
   position: fixed;
-  top: 30px;
-  background-color: yellow;
-  width: 20vw;
+  top: 25px;
+  background-color: rgb(52, 18, 9);
+  width: 100vw;
+  text-align: center;
+  padding: 2px;
+
+}
+
+menu a {
+  color: silver;
 }
 
 .entry {
@@ -51,9 +75,13 @@ menu {
   border-radius: 10px;
   box-shadow: grey;
   padding: 10px;
-  background-color: lightblue;
+  background-color: silver;
   display: flex;
   flex-direction: row;
+}
+
+.clients {
+  display: block;
 }
 
 li {
@@ -62,23 +90,58 @@ li {
   flex-direction: row;
 }
 
-.entry:hover {
-border: 1px solid blue;
-}
-
 label {
   display: flex;
 }
 
-.incomplete {
-  background-color: pink;
+.Incomplete {
+  background-color: rgb(241, 112, 44);
 }
 
-.complete {
-  background-color: rgb(189, 255, 189);
+.Complete {
+  background-color: rgb(201, 202, 145);
 }
 
-.assigned {
-  background-color: lightyellow;
+.Assigned {
+  background-color: rgb(246, 204, 130);
 }
 
+label {
+  display: inline;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: silver;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+button {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+
+.sidebar li {
+  display:inline;
+  margin: 10px;
+}

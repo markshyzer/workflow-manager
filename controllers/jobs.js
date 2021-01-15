@@ -72,11 +72,10 @@ function editJob (req, res, next) {
 function updateJob (req, res, next) {
     let id = req.body.id
     Job.findById(id, function(err, job){
-        console.log('I found: ', job)
-        console.log('I want to put: ', req.body)
         job = Object.assign(job, req.body)
         // job.source = req.body.source
-        console.log('job is now ', job)
+        console.log('file', req.file)
+            // job.completedFilePath = req.file.filename
         job.save(function(err){
             if (err) return(res.send(err));
             // console.log(job)

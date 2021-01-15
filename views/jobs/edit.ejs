@@ -7,11 +7,9 @@
     <label>Job ID:
         <input type="text" name="id" value="<%= job._id %>"readonly>
     </label>
-    <label>Path to A/V file:
-        <input type="text" name="source" value="<%= job.source %>"=>
-    </label>
-    <label>Path to script or supporting document:
-        <input type="text" name="sourceDocuments" value="<%= job.sourceDocuments %>">
+    <% if (user.admin) { %>
+    <label>Source file:
+        <input type="text" name="source" value="<%= job.source %>" readonly>
     </label>
     <label>Client:
         <select name="client">
@@ -25,12 +23,14 @@
     </label>
     <label>Service:
         <select name="service" value="<%= job.service %>">
+            <option value="<%= job.service %>"><%= job.service %> (Current)</option>
             <option value="Transcript">Transcribe</option>
             <option value="Captions">Caption</option>
             </select>
     </label>
     <label>Speed:
         <select name="speed" value="<%= job.speed %>">
+            <option value="<%= job.speed %>"><%= job.speed %> (Current)</option>
             <option value="regular">Regular</option>
             <option value="rush">Rush</option>
             <option value="super rush">Super Rush</option>
@@ -48,17 +48,19 @@
     <label>Assign to:
 
         <select name="assignedTo">
+            <option value="<%= job.assignedTo %>"><%= job.assignedTo.email %> (Current) </option>
         <% userlist.forEach(function(id){ %>
             <option value="<%= id._id %>"><%= id.email %></option>
         <% }) %>
         </select>
     </label>
+<% } %>
     <label>Status:
         <select name="status">
             <option value="<%= job.status %>"><%= job.status %></option>
-            <option value="incomplete">Incomplete</option>
-            <option value="assigned">Assigned</option>
-            <option value="complete">Complete</option>
+            <option value="Incomplete">Incomplete</option>
+            <option value="Assigned">Assigned</option>
+            <option value="Complete">Complete</option>
         </select>
     </label>
     <button type=submit>Submit</button>

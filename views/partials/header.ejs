@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-    <h1>Workflow Manager</h1><span>
+    <h2>Workflow Manager</h2><span>
         <% if (user) { %>
             Logged in as <%= user.email %> <a href="../logout">Logout</a>
         <% } else { %>
@@ -17,18 +17,20 @@
         <% } %>
     </span>
     </header>  
+    <% if (user) { %>
     <menu>
-        <ul>
-            <li>
-                 <a href="/jobs">Jobs </a>
-            </li>
-            <li>
-                <a href="/clients">Clients </a>
-           </li>
-           <li>
-               <a href="/users">Users </a>
-             </li>
+        <ul class="sidebar">
+            <li><a href="/jobs">All Jobs </a></li>
+
+            <% if (user.admin === true) { %>
+            <li><a href="/jobs/new">Add Job</a></li>
+            <li><a href="/clients">Clients</a></li>
+            <li><a href="/clients/new">Add Client</a></li>
+           <li><a href="/users">Users</a></li>
+           <% } %>
+
         </ul>
     </menu> 
-</body>
+    <% } %>
+<!-- </body> -->
 </html>

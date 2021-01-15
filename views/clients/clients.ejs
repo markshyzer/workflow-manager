@@ -1,19 +1,17 @@
 <%- include('../partials/header') %>
 <h1>All Clients</h1>
 <% clients.forEach(function(c) { %>
-    <div class="entry">
-    <%= c.companyName %>
-    <%= c.address %>
-    <%= c.city %>
+    <div class="entry clients">
+        <h2><%= c.companyName %></h2>
+    <p></p><%= c.address %><br>
+    <%= c.city %>,
     <%= c.province %>
-    <%= c.country %>
-    <%= c.postalCode %>
-    <%= c.hst %>
-    <%= c.billingNotes %>
-    <%= c.serviceNotes %>  
-    <%= c.contact %>
-    <%= c.jargon %>      
+    <%= c.country %><br>
+    <%= c.postalCode %><br>
+    HST: <%= c.hst %></p>
+        <p>
+    Contact: <%= c.contact %> - <%= c.email %>    
+</p>
     <a href="/clients/<%= c._id %>">Detail</a>
     </div>
 <% }) %>
-<a href="/clients/new">Add Client</a>

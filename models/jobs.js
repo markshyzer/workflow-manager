@@ -8,7 +8,7 @@ const jobSchema = new Schema ({
     filePath: String,
     fileSize: Number,
     sourceDocuments: { type: String, default: null},
-    status: {type: String, default: 'incomplete'},
+    status: {type: String, default: 'Incomplete'},
     client: { type: mongoose.Types.ObjectId, ref: 'Client' },
     dueDate: String,
     service: {type: String, enum: ['Transcript', 'Captions'] },
@@ -25,7 +25,9 @@ const jobSchema = new Schema ({
     projcet: String,
     createdDate: { type: Date, default: Date.now },
     assignedDate: Date,
-    completedDate: Date
+    completedDate: Date,
+    completedFile: String,
+    completedFilePath: String,
 })
 
 module.exports = mongoose.model('Job', jobSchema)
