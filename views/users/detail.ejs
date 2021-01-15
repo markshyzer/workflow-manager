@@ -2,20 +2,20 @@
 <h1>User Detail</h1>
 
 <div class="entry clients">
-    <h4><%= user.name %> 
-        <% if (user.admin) { %>
+    <h4><%= users.name %> 
+        <% if (users.admin) { %>
              (Administrator)
             <% } %>
         </h4>
         <p>
-        <%= user.email %><br><br>
-        <%= user.address %><br>
-        <%= user.city %>, <%= user.province %> <%= user.country %><br>
-        <%= user.postalCode %><br><br>
-        Time Zone: <%= user.timeZone %><br>
-        Rate: <%= user.rate %><br>
-        HST Number: <%= user.hstNumber %></p>
-    <a href="/users/<%= user._id %>/edit">Edit</a>
+        <%= users.email %><br><br>
+        <%= users.address %><br>
+        <%= users.city %>, <%= users.province %> <%= users.country %><br>
+        <%= users.postalCode %><br><br>
+        Time Zone: <%= users.timeZone %><br>
+        Rate: <%= users.rate %><br>
+        HST Number: <%= users.hstNumber %></p>
+    <a href="/users/<%= users._id %>/edit">Edit</a>
 </div>
 
     
